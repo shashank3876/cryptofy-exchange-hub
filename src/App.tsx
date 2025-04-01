@@ -24,8 +24,9 @@ import { AuthProvider } from "./contexts/AuthContext";
 const queryClient = new QueryClient();
 
 // Create Supabase client
-const supabaseUrl = "https://your-supabase-url.supabase.co";
-const supabaseAnonKey = "your-anon-key";
+// Replace these with your actual Supabase credentials
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "https://your-supabase-url.supabase.co";
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "your-anon-key";
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const App = () => {
@@ -33,9 +34,9 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <TooltipProvider>
-          <Toaster />
-          <Sonner />
           <BrowserRouter>
+            <Toaster />
+            <Sonner />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/signin" element={<SignIn />} />
