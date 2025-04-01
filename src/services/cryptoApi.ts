@@ -47,6 +47,10 @@ export interface CoinDetail extends Coin {
   };
   market_data: {
     current_price: { [key: string]: number };
+    market_cap: { [key: string]: number };
+    total_volume: { [key: string]: number };
+    ath: { [key: string]: number };
+    atl: { [key: string]: number };
     price_change_percentage_1h_in_currency: { [key: string]: number };
     price_change_percentage_24h_in_currency: { [key: string]: number };
     price_change_percentage_7d_in_currency: { [key: string]: number };
