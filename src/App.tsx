@@ -4,7 +4,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { createClient } from "@supabase/supabase-js";
 
 import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
@@ -22,12 +21,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 
 const queryClient = new QueryClient();
-
-// Create Supabase client
-// Replace these with your actual Supabase credentials
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "https://your-supabase-url.supabase.co";
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "your-anon-key";
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const App = () => {
   return (
