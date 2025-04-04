@@ -33,7 +33,7 @@ const Sidebar = ({ open, setOpen }: SidebarProps) => {
     {
       label: "Markets",
       icon: <Bitcoin className="h-5 w-5" />,
-      href: "/app/dashboard",
+      href: "/app/markets",
       active: pathname === "/app/markets",
     },
     {
@@ -81,7 +81,7 @@ const Sidebar = ({ open, setOpen }: SidebarProps) => {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex w-64 flex-col bg-sidebar border-r shadow-md transition-transform duration-300 md:translate-x-0 md:z-0",
+          "fixed inset-y-0 left-0 z-40 flex w-64 flex-col bg-sidebar border-r shadow-md transition-transform duration-300 md:relative md:translate-x-0",
           open ? "translate-x-0" : "-translate-x-full"
         )}
       >
