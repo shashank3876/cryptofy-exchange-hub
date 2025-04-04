@@ -16,6 +16,7 @@ import Buy from "./pages/Buy";
 import Sell from "./pages/Sell";
 import Transactions from "./pages/Transactions";
 import Settings from "./pages/Settings";
+import Markets from "./pages/Markets";
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -42,6 +43,7 @@ const App = () => {
               }>
                 <Route index element={<Navigate to="/app/dashboard" replace />} />
                 <Route path="dashboard" element={<Dashboard />} />
+                <Route path="markets" element={<Markets />} />
                 <Route path="coin/:id" element={<CoinDetails />} />
                 <Route path="wallet" element={<Wallet />} />
                 <Route path="buy" element={<Buy />} />
