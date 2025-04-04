@@ -1,6 +1,6 @@
 
 import { toast } from "sonner";
-import { supabase } from "../App";
+import { supabase } from "../integrations/supabase/client";
 
 // Type for the order creation response
 interface OrderResponse {
