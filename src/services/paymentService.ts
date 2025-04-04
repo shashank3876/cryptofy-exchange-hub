@@ -116,12 +116,21 @@ export const verifyPayment = async (
       throw new Error(`Payment verification failed: ${response.statusText}`);
     }
 
+    // Get current authenticated user
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+    
+    if (userError || !userData.user) {
+      console.error('Error getting authenticated user:', userError);
+      toast.error('Authentication error. Please sign in again.');
+      return false;
+    }
+    
     // Store transaction in database
     const { error } = await supabase
       .from('transactions')
       .insert([
         {
-          user_id: (await supabase.auth.getUser()).data.user?.id,
+          user_id: userData.user.id,
           payment_id,
           order_id,
           amount: transactionDetails.amount,
